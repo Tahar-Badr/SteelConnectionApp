@@ -1,6 +1,5 @@
 using SteelConnection.Application.Views;
 
-
 namespace SteelConnection.Application
 {
     internal static class Program

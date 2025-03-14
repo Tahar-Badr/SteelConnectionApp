@@ -1,4 +1,4 @@
-﻿namespace SteelConnection.Application.Operations
+﻿namespace SteelConnection.Operations
 {
     public class Calculations
     {

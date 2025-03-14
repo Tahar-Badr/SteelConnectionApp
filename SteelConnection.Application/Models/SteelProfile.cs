@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace SteelConnection.Application.Models
+namespace SteelConnection.Models
 {
     public class SteelProfile
     {

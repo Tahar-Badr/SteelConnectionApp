@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SteelConnection.Application.Views
+namespace SteelConnection.Views
 {
     public partial class MainForm : Form
     {

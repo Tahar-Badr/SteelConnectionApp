@@ -1,6 +1,6 @@
-using SteelConnection.Application.Views;
+using SteelConnection.Views;
 
-namespace SteelConnection.Application
+namespace SteelConnection
 {
     internal static class Program
     {

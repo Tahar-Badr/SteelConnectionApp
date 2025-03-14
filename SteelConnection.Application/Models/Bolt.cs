@@ -1,4 +1,4 @@
-﻿namespace SteelConnection.Application.Models
+﻿namespace SteelConnection.Models
 {
     public class Bolt
     {

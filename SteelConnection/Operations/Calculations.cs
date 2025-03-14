@@ -2,6 +2,6 @@
 {
     public class Calculations
     {
-        // Add Calculations here te
+        // Add Calculations here
     }
 }

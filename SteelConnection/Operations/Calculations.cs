@@ -3,5 +3,6 @@
     public class Calculations
     {
         // Add Calculations here
+
     }
 }

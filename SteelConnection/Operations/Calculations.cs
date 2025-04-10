@@ -2,6 +2,8 @@
 {
     public class Calculations
     {
+        // Add Calculations here
+
         // Add Calculusing System;
 using SteelConnection.Data; // ?  Profile
 

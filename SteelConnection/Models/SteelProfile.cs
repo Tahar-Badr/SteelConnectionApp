@@ -23,12 +23,14 @@ namespace SteelConnection.Models
 
         public static List<SteelProfile> LoadProfilesFromJson(string filePath)
         {
-            if (!File.Exists(filePath))
+            string basepath = AppDomain.CurrentDomain.BaseDirectory;
+            string fullPath = Path.Combine(basepath,"resources", filePath);
+            if (!File.Exists(fullPath))
             {
                 throw new FileNotFoundException("JSON file not found.");
             }
 
-            string jsonData = File.ReadAllText(filePath);
+            string jsonData = File.ReadAllText(fullPath);
             return JsonConvert.DeserializeObject<List<SteelProfile>>(jsonData);
         }
     }

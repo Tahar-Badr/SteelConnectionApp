@@ -1,19 +1,19 @@
 ﻿namespace SteelConnection.Operations
 {
-    public class Calculations
-    {
+   // public class Calculations
+    //{
         // Add Calculations here
 
         // Add Calculusing System;
-using SteelConnection.Data; // ?  Profile
+//using SteelConnection.Data; // ?  Profile
 
-namespace SteelConnection.Operations
-    {
+//namespace SteelConnection.Operations
+    //{
         public class Calculations
         {
             public class Component2Calculator
             {
-                public static void CalculateComponent2(Profile profile)
+                public static void CalculateComponent2(SteelProfiles profile)
                 {
                     // Step 1: b_eff,c,wc
                     double b_eff_c_wc = profile.t_jb + 2 * profile.q_f * Math.Sqrt(2)
@@ -47,7 +47,7 @@ namespace SteelConnection.Operations
                     /// <param name="profile">Profile object containing geometric and material properties.</param>
                     /// <returns>Design resistance F_Rd,7,(1) in Newtons.</returns>
                     /// <exception cref="ArgumentException">Thrown if some variables are zero.</exception>
-                    public static double CalculateComponent7(Profile profile)
+                    public static double CalculateComponent7(SteelProfiles  profile)
                     {
                         // Validate inputs to avoid division by zero
                         if (profile.gamma_m0 == 0)
@@ -80,7 +80,7 @@ namespace SteelConnection.Operations
                         /// <param name="profile">Profile object containing geometric and material properties.</param>
                         /// <returns>Design resistance F_Rd,3,(1) in Newtons.</returns>
                         /// <exception cref="ArgumentException">Thrown if some variables are zero.</exception>
-                        public static double CalculateComponent3TwoRows(Profile profile)
+                        public static double CalculateComponent3TwoRows(SteelProfiles profile)
                         {
                             // Validate inputs to avoid division by zero
                             if (profile.gamma_m0 == 0)
@@ -118,7 +118,7 @@ namespace SteelConnection.Operations
                         }
 
 
-                        public static double CalculateIndividualBoltRowResistance(Profile profile, double l_eff_fc)
+                        public static double CalculateIndividualBoltRowResistance(SteelProfiles profile, double l_eff_fc)
                         {
                             // Validate inputs to avoid division by zero
                             if (profile.gamma_m0 == 0)
@@ -153,7 +153,7 @@ namespace SteelConnection.Operations
                         /// <param name="rowDescription">Description of the combined rows (e.g., "Rows 1 and 2").</param>
                         /// <returns>Resistance F_t,wc,Rd in Newtons.</returns>
                         /// <exception cref="ArgumentException">Thrown if some variables are zero.</exception>
-                        public static double CalculateCombinedBoltRowsResistance(Profile profile, double l_eff_fc, string rowDescription)
+                        public static double CalculateCombinedBoltRowsResistance(SteelProfiles profile, double l_eff_fc, string rowDescription)
                         {
                             // Validate inputs to avoid division by zero
                             if (profile.gamma_m0 == 0)
@@ -190,7 +190,7 @@ namespace SteelConnection.Operations
                             /// <param name="caseType">Specific case ("individual", "first", "internal", "last", "first_combined_with_next").</param>
                             /// <param name="p">Spacing between bolt rows (mm).</param>
                             /// <returns>Tuple containing l_eff,cp and l_eff,nc in mm.</returns>
-                            public static (double l_eff_cp, double l_eff_nc) CalculateEffectiveLengthForComponent4(Profile profile, int row, string caseType, double p)
+                            public static (double l_eff_cp, double l_eff_nc) CalculateEffectiveLengthForComponent4(SteelProfiles profile, int row, string caseType, double p)
                             {
                                 double m = profile.m;
                                 double e = (profile.b_c - profile.w) / 2; // Assuming b_c and w are available in Profile
@@ -283,7 +283,7 @@ namespace SteelConnection.Operations
                             /// <param name="caseType">Specific case ("individual", "first", "internal", "last", "first_combined_with_next").</param>
                             /// <param name="p">Spacing between bolt rows (mm).</param>
                             /// <returns>Design resistance F_Rd,4,(1) in Newtons.</returns>
-                            public static double CalculateComponent4(Profile profile, int n_bolts, int row, string caseType, double p)
+                            public static double CalculateComponent4(SteelProfiles profile, int n_bolts, int row, string caseType, double p)
                             {
                                 if (profile.gamma_m0 == 0 || profile.gamma_m2 == 0)
                                     throw new ArgumentException("gamma_m0 and gamma_m2 cannot be zero.");
@@ -302,18 +302,18 @@ namespace SteelConnection.Operations
                                 double n = Math.Min(e_min, 1.25 * profile.m);
 
                                 // Step 4: Calculate m_pl,Rd (plastic bending resistance)
-                                double m_pl_Rd = (0.25 * b_eff_t_fc * profile.t_f * profile.t_f * profile.f_y) / profile.gamma_m0;
+                               // double m_pl_Rd = (0.25 * b_eff_t_fc * profile.t_f * profile.t_f * profile.f_y) / profile.gamma_m0;
 
                                 // Step 5: Calculate bolt resistance
                                 double F_t_Rd_per_bolt = (0.9 * profile.A_s * profile.f_ub) / profile.gamma_m2;
                                 double sum_F_t_Rd = n_bolts * F_t_Rd_per_bolt;
 
                                 // Step 6: Calculate resistances for each failure mode
-                                double F_fc_Rd_1 = (4 * m_pl_Rd) / profile.m;
-                                double F_fc_Rd_2 = (2 * m_pl_Rd + n * sum_F_t_Rd) / (profile.m + n);
+                              //  double F_fc_Rd_1 = (4 * m_pl_Rd) / profile.m;
+                               // double F_fc_Rd_2 = (2 * m_pl_Rd + n * sum_F_t_Rd) / (profile.m + n);
 
                                 // Step 7: Take the minimum resistance
-                                double F_Rd_4_1 = Math.Min(F_fc_Rd_1, F_fc_Rd_2);
+                              //  double F_Rd_4_1 = Math.Min(F_fc_Rd_1, F_fc_Rd_2);
 
                                 // Output for debugging purposes
                                 Console.WriteLine($"=== Component 4: Column Flange in Bending (Row {row}, Case: {caseType}) ===");
@@ -323,14 +323,14 @@ namespace SteelConnection.Operations
                                 Console.WriteLine($"e = {e:F2} mm");
                                 Console.WriteLine($"e_min = {e_min:F2} mm");
                                 Console.WriteLine($"n = {n:F2} mm");
-                                Console.WriteLine($"m_pl_Rd = {m_pl_Rd:F2} N.mm");
+                               // Console.WriteLine($"m_pl_Rd = {m_pl_Rd:F2} N.mm");
                                 Console.WriteLine($"F_t_Rd (per bolt) = {F_t_Rd_per_bolt:F2} N");
                                 Console.WriteLine($"Sum F_t_Rd = {sum_F_t_Rd:F2} N");
-                                Console.WriteLine($"F_fc_Rd_1 (Mode 1) = {F_fc_Rd_1:F2} N");
-                                Console.WriteLine($"F_fc_Rd_2 (Mode 2) = {F_fc_Rd_2:F2} N");
-                                Console.WriteLine($"F_Rd_4_1 = {F_Rd_4_1:F2} N");
+                               // Console.WriteLine($"F_fc_Rd_1 (Mode 1) = {F_fc_Rd_1:F2} N");
+                                //Console.WriteLine($"F_fc_Rd_2 (Mode 2) = {F_fc_Rd_2:F2} N");
+                             //   Console.WriteLine($"F_Rd_4_1 = {F_Rd_4_1:F2} N");
 
-                                return F_Rd_4_1;
+                                return 1;
                             }
                         }
                     }
@@ -338,8 +338,8 @@ namespace SteelConnection.Operations
             }
         }
     }
-}
-} 
-ations here
-    }
-}
+//}
+//} 
+//ations here
+  //  }
+//}

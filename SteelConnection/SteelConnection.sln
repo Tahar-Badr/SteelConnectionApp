@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelConnection", "SteelConnection.csproj", "{582280EA-5D28-4C9D-BCAE-57380E376CD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Front end", "..\Front end\Front end.csproj", "{4616A75C-644F-4148-9BDD-1BADF5326738}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{582280EA-5D28-4C9D-BCAE-57380E376CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{582280EA-5D28-4C9D-BCAE-57380E376CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{582280EA-5D28-4C9D-BCAE-57380E376CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4616A75C-644F-4148-9BDD-1BADF5326738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4616A75C-644F-4148-9BDD-1BADF5326738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4616A75C-644F-4148-9BDD-1BADF5326738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4616A75C-644F-4148-9BDD-1BADF5326738}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86B81045-8FCC-4C9E-87A9-E0705B983FB5}
 	EndGlobalSection
 EndGlobal

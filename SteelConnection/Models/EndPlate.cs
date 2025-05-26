@@ -2,12 +2,12 @@
 {
     public class EndPlate
     {
-        public double Tp { get; set; } // Plate thickness
-        public double Af { get; set; } // Flange area
-        public double Aw { get; set; } // Web area
-        public double Fy { get; set; } // Yield strength
-        public double Ex { get; set; } // Eccentricity x
-        public double E { get; set; }  // Elastic modulus
+        public double Tp { get; set; } // Thickness
+        public double Af { get; set; } // Front weld size
+        public double Aw { get; set; } // Web weld size
+        public double Fy { get; set; } // Yield strength (MPa)
+        public double Ex { get; set; } // Edge distance (x-direction)
+        public double E { get; set; }  // Bolt pitch
 
         public EndPlate(double tp, double af, double aw, double fy, double ex, double e)
         {
@@ -17,11 +17,6 @@
             Fy = fy;
             Ex = ex;
             E = e;
-        }
-
-        public void DisplayProperties()
-        {
-            Console.WriteLine($"End Plate - Tp: {Tp}, Af: {Af}, Aw: {Aw}, Fy: {Fy}, Ex: {Ex}, E: {E}");
         }
     }
 }

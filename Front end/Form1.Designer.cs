@@ -22,10 +22,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             panelMenu = new Panel();
@@ -123,7 +119,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.LightGray;
-            label2.Location = new Point(75, 34);
+            label2.Location = new Point(56, 28);
             label2.Name = "label2";
             label2.Size = new Size(99, 31);
             label2.TabIndex = 0;
@@ -132,7 +128,7 @@
             // 
             // lblTitle
             // 
-            lblTitle.BackColor = Color.FromArgb(30, 30, 45);
+            lblTitle.BackColor = Color.FromArgb(24, 30, 54);
             lblTitle.Controls.Add(label1);
             lblTitle.Dock = DockStyle.Top;
             lblTitle.Location = new Point(220, 0);

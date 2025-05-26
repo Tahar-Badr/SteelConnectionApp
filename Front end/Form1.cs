@@ -20,20 +20,21 @@ namespace Front_end
         {
             InitializeComponent();
             random = new Random();
+
         }
 
         //Methods
-        private Color SelectThemeColor()
-        {
-            int index = random.Next(ThemeColor.ColorList.Count);
-            while (tempIndex == index)
-            {
-                index = random.Next(ThemeColor.ColorList.Count);
-            }
-            tempIndex = index;
-            string color = ThemeColor.ColorList[index];
-            return ColorTranslator.FromHtml(color);
-        }
+        //private Color SelectThemeColor()
+       // {
+       //     int index = random.Next(ThemeColor.ColorList.Count);
+       //     while (tempIndex == index)
+        //    {
+        //        index = random.Next(ThemeColor.ColorList.Count);
+         //   }
+         //   tempIndex = index;
+        //    string color = ThemeColor.ColorList[index];
+        //    return ColorTranslator.FromHtml(color);
+      //  }
         private void ActivateButton(object btnSender)
         {
             if (btnSender != null)
@@ -41,12 +42,12 @@ namespace Front_end
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
-                    Color color = SelectThemeColor();
+                    //Color color = SelectThemeColor();
                     currentButton = (Button)btnSender;
-                    currentButton.BackColor = color;
-                    currentButton.ForeColor = Color.White;
-                    currentButton.Font = new Font("Segoe UI", 12.5F);
-                    lblTitle.BackColor = color;
+                    //currentButton.BackColor = color;
+                   // currentButton.ForeColor = Color.White;
+                    currentButton.Font = new Font("Segoe UI", 12.5F); // Optional visual cue
+                  //  lblTitle.BackColor = color;
 
                 }
             }
@@ -64,20 +65,13 @@ namespace Front_end
                 }
             }
         }
-
-        private void OpenChildForm(Form childForm, object btnsender)
-        {
-
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void openChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
             {
                 activeForm.Close();
             }
-            activebutton(btnsender);
+            ActivateButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -86,7 +80,30 @@ namespace Front_end
             this.panelDesktopPane.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lblTitle.Text = childForm.Text;
+            label1.Text = childForm.Text;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            // Ensure 'btnsender' and 'childForm' are properly defined
+            object btnsender = button1; // Replace 'button1' with the appropriate button reference
+            Form childForm = new forms.joint2(); // Replace 'forms.formjoint()' with the appropriate form instance
+
+            ActivateButton(btnsender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panelDesktopPane.Controls.Add(childForm);
+            this.panelDesktopPane.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            label1.Text = childForm.Text;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -101,7 +118,7 @@ namespace Front_end
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            openChildForm(new forms.joint2(), sender);
         }
 
         private void login_Paint(object sender, PaintEventArgs e)
@@ -111,12 +128,12 @@ namespace Front_end
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            openChildForm(new forms.history(), sender);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            openChildForm(new forms.setting(), sender);
         }
 
         private void label2_Click(object sender, EventArgs e)

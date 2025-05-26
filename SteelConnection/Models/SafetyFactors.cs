@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace SteelConnection.Models
 {
-    internal class SafetyFactors
+    public static class SafetyFactors
     {
-        public static class SafetyFactors
-        {
-            public const double GammaM0 = 1.00;
-            public const double GammaM2 = 1.25;
-        }
+        public const double GammaM0 = 1.00;
+        public const double GammaM2 = 1.25;
     }
 }

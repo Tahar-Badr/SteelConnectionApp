@@ -13,12 +13,15 @@ namespace SteelConnection.Models
         public double FlangeThickness { get; set; }
         public double RootRadius { get; set; }
         public double Area { get; set; }
+        public double Avy { get; set; }
         public double Iy { get; set; }
         public double Iz { get; set; }
         public double Wy { get; set; }
         public double Wz { get; set; }
         public double Wply { get; set; }
         public double Wplz { get; set; }
+        public double Wely { get; set; }
+        public double Welz { get; set; }
 
 
         public static List<SteelProfile> LoadProfilesFromJson(string filePath)

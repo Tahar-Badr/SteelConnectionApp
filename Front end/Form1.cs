@@ -14,6 +14,8 @@ namespace Front_end
         private Random random;
         private int tempIndex;
         private Form activeForm;
+        private object btnsender;
+        private Form? childForm;
 
         //Constructor
         public hm()
@@ -87,6 +89,11 @@ namespace Front_end
             childForm.BringToFront();
             childForm.Show();
             lblTitle.Text = childForm.Text;
+        }
+
+        private void activebutton(object btnsender)
+        {
+            throw new NotImplementedException();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

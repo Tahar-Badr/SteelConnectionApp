@@ -28,4 +28,8 @@
     <Folder Include="forms\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SteelConnection\SteelConnection.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -23,7 +23,7 @@ namespace SteelConnection.Models
         public double Wely { get; set; }
         public double Welz { get; set; }
 
-
+        public double YieldStrength { get; set; }
         public static List<SteelProfile> LoadProfilesFromJson(string filePath)
         {
             string basepath = AppDomain.CurrentDomain.BaseDirectory;

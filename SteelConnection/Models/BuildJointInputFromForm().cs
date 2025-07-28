@@ -40,6 +40,7 @@ private JointInput BuildJointInputFromForm()
             {
                 ProfileType = cmb_ColProfileType.Text,
                 Size = cmb_ColSize.Text
+                YieldStrength = GetYieldStrengthFromComboBox()
             }
         },
         Beam = new JointBeam
@@ -48,6 +49,7 @@ private JointInput BuildJointInputFromForm()
             {
                 ProfileType = cmb_BeamProfileType.Text,
                 Size = cmb_BeamSize.Text
+                YieldStrength = GetYieldStrengthFromComboBox()
             }
         },
         EndPlate = new EndPlate
@@ -69,4 +71,18 @@ private JointInput BuildJointInputFromForm()
     };
 
     return input;
+}
+private double GetYieldStrengthFromComboBox()
+{
+    switch (cmb_YieldStrength.Text)
+    {
+        case "S235":
+            return 235;
+        case "S275":
+            return 275;
+        case "S355":
+            return 355;
+        default:
+            return 275;
+    }
 }

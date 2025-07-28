@@ -145,5 +145,10 @@ namespace Front_end
         {
 
         }
+
+        private void cmb_YieldStrength_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

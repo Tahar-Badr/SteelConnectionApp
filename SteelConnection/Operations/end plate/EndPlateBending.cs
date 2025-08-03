@@ -30,7 +30,8 @@ namespace SteelConnection.Operations.EndPlate
 
             double lambda1 = m / (m + e);
             double lambda2 = (e_x + e - 0.8 * a_f * Math.Sqrt(2)) / (m + e);
-            double alpha = Math.Min(6 * lambda1, Math.Pow(1.5 * lambda2, 0.8));
+            double alpha = CalculateAlpha(lambda1, lambda2);
+
 
             return (
                 Row1: CalculateRow1(m_x, e_x, w, b_p, m_plRd, n_x, B_tRd),
@@ -125,5 +126,10 @@ namespace SteelConnection.Operations.EndPlate
                 _ => throw new ArgumentException("Supported active rows: 1-3")
             };
         }
+        private static double CalculateAlpha(double lambda1, double lambda2)
+        {
+            return 8 - 3.55 * Math.Pow(lambda1 - lambda2 - 0.5, 2);
+        }
+
     }
 }
